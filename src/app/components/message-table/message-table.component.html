@@ -1,1 +1,6 @@
-<p>message-table works!</p>
+<p>Messages</p>
+<p *ngFor="let m of messages"> <b *ngIf="m.sender == user.id">{{user.username}}:</b><b *ngIf="m.sender == friend.id">{{friend.username}}:</b>{{m.epochTime | date : 'short'}} | {{m.contents}}</p>
+<textarea matInput rows="3" cols="500" placeholder="Send a message!" maxlength="200" [(ngModel)]="message"></textarea>
+<input type="text" [(ngModel)]="friendName">
+<button (click)="getFriend()">Get Friend (Test)</button>
+<button [disabled]="this.message === ''" (click)="sendMessage()">Send</button>
