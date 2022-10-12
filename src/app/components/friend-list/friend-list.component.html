@@ -1,1 +1,13 @@
 <p>friend-list works!</p>
+<input type="text" [(ngModel)]="friendUsername">
+<button (click)="addFriend()">Add Friend</button>
+<p>{{appUser.username}}
+    Friends:</p>
+<button (click)="showFriends()">Show Friends</button> <button (click)="showPending()">Show Pending Reqs</button>
+<div *ngIf="showList === true">
+    <p *ngFor="let f of friendlists">{{f.appUser.username}}
+        <button *ngIf="f.friend.status === 'Pending'" (click)="acceptRequest(f.appUser)">Accept</button>
+        <button *ngIf="f.friend.status === 'Pending'" (click)="declineRequest(f.appUser)">Decline</button>
+        <button *ngIf="f.friend.status === 'Friends'" (click)="selectFriend(f.appUser)">Select</button>
+        <button *ngIf="f.friend.status === 'Friends'" (click)="removeFriend(f.appUser)">Remove Friend</button></p>
+</div>

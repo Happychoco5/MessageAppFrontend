@@ -11,7 +11,6 @@ import { MessageTableComponent } from './components/message-table/message-table.
 import { RegisterPageComponent } from './components/register-page/register-page.component';
 import { RegisterFormComponent } from './components/register-form/register-form.component';
 import { FriendListComponent } from './components/friend-list/friend-list.component';
-import { FriendRequestListComponent } from './components/friend-request-list/friend-request-list.component';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -23,8 +22,7 @@ import { FormsModule } from '@angular/forms';
     MessageTableComponent,
     RegisterPageComponent,
     RegisterFormComponent,
-    FriendListComponent,
-    FriendRequestListComponent
+    FriendListComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppUser } from 'src/app/models/Appuser';
 
 @Component({
   selector: 'app-main-page',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainPageComponent implements OnInit {
 
+  friendInfo:AppUser = new AppUser(0, "",  "", "", "", "");
+  
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  updateMessageInfo(user:AppUser){
+    this.friendInfo = user;
   }
 
 }

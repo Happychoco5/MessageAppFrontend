@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Observable, Subscription, timer } from 'rxjs';
 import { AppUser } from 'src/app/models/Appuser';
 import { Message } from 'src/app/models/message';
@@ -16,12 +16,11 @@ export class MessageTableComponent implements OnInit {
   timerSub: Subscription = new Subscription;
 
   user:AppUser = new AppUser(0, '', '', '', '', '');
-  friend:AppUser = new AppUser(0, '', '', '', '', '');
+  @Input() friend:AppUser = new AppUser(0, '', '', '', '', '');
   messageToSend:Message = new Message(0, 0, 0, 0, "");
   messages:Message[] = [];
   message:string = "";
-  friendName:string = "";
-
+  
   constructor(private messageService:MessageServiceService, private jwtDecoder:JwtDecoderService, private appUserService:AppUserService) {}
 
   ngOnInit(): void {
@@ -31,15 +30,7 @@ export class MessageTableComponent implements OnInit {
         this.user = user;
       }
     )
-    this.appUserService.getUserWithUsername(this.friendName).subscribe(
-      (friend)=>{
-        this.friend = friend;
-      }
-    )
     this.getMessages();
-
-
-    
   }
 
   sendMessage(){
@@ -56,15 +47,7 @@ export class MessageTableComponent implements OnInit {
       console.log("error sending message");
     }
     );
-  }
-
-  getFriend(){
-    this.appUserService.getUserWithUsername(this.friendName).subscribe(
-      (friend)=>{
-        this.friend = friend;
-        console.log(friend);
-      }
-    )
+    this.message="";
   }
 
   getMessages(){
