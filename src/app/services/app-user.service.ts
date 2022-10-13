@@ -12,14 +12,14 @@ export class AppUserService {
   constructor(private http:HttpClient) { }
 
   public registerAccount(user:AppUser){
-    return this.http.post(`http://localhost:8080/appusers`, user);
+    return this.http.post(`https://messageapp.icyflower-d2602808.eastus.azurecontainerapps.io/appusers`, user);
   }
 
   public getUserWithUsername(username:string){
-    return this.http.get<AppUser>(`http://localhost:8080/appusers/${username}`);
+    return this.http.get<AppUser>(`https://messageapp.icyflower-d2602808.eastus.azurecontainerapps.io/appusers/${username}`);
   }
 
   public async getUserWithId(id:number):Promise<AppUser|undefined>{
-    return await this.http.get<AppUser>(`http://localhost:8080/appusers/id/${id}`).toPromise();
+    return await this.http.get<AppUser>(`https://messageapp.icyflower-d2602808.eastus.azurecontainerapps.io/appusers/id/${id}`).toPromise();
   }
 }
