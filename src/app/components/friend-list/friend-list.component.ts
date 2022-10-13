@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { AppUser } from 'src/app/models/Appuser';
+import { AppUser } from 'src/app/models/AppUser';
 import { Friend } from 'src/app/models/Friend';
 import { FriendList } from 'src/app/models/FriendList';
 import { AppUserService } from 'src/app/services/app-user.service';

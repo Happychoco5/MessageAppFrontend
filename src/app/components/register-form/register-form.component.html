@@ -1,1 +1,23 @@
-<p>register-form works!</p>
+<p>Register An Account!</p>
+<form (ngSubmit)="registerAccount()">
+    <fieldset class="center">
+        <label for="fname">Username:</label>
+        <input type="text" id="username" name="username" [(ngModel)]="username">
+        <br>
+        <label for="fname">Password:</label>
+        <input type="password" id="password" name="password" [(ngModel)]="password">
+        <br>
+        <label for="fname">Confirm Password:</label>
+        <input type="password" id="checkPassword" name="checkPassword" [(ngModel)]="checkPassword">
+        <br>
+        <label for="fname">First Name:</label>
+        <input type="text" id="fName" name="fName" [(ngModel)]="fName">
+        <br>
+        <label for="fname">Last Name:</label>
+        <input type="text" id="lName" name="lName" [(ngModel)]="lName">
+        <br>
+        <button type="submit">Submit</button>
+        <br>
+        <a [routerLink]="['/login']">Back to Login</a>
+    </fieldset>
+</form>

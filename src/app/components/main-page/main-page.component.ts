@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AppUser } from 'src/app/models/Appuser';
+import { Router } from '@angular/router';
+import { AppUser } from 'src/app/models/AppUser';
 
 @Component({
   selector: 'app-main-page',
@@ -10,13 +11,19 @@ export class MainPageComponent implements OnInit {
 
   friendInfo:AppUser = new AppUser(0, "",  "", "", "", "");
   
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
+    
   }
 
   updateMessageInfo(user:AppUser){
     this.friendInfo = user;
+  }
+
+  logout(){
+    localStorage.clear();
+    this.router.navigateByUrl("/login");
   }
 
 }

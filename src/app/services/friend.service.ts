@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TitleStrategy } from '@angular/router';
 import { Observable } from 'rxjs';
-import { AppUser } from '../models/Appuser';
+import { AppUser } from '../models/AppUser';
 import { Friend } from '../models/Friend';
 import { AppUserService } from './app-user.service';
 

@@ -1,4 +1,4 @@
-import { AppUser } from "./Appuser";
+import { AppUser } from "./AppUser";
 import { Friend } from "./Friend";
 
 export class FriendList{

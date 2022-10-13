@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable, Subscription, timer } from 'rxjs';
-import { AppUser } from 'src/app/models/Appuser';
-import { Message } from 'src/app/models/message';
+import { AppUser } from 'src/app/models/AppUser';
+import { Message } from 'src/app/models/Message';
 import { AppUserService } from 'src/app/services/app-user.service';
 import { JwtDecoderService } from 'src/app/services/jwt-decoder.service';
 import { MessageServiceService } from 'src/app/services/message-service.service';
