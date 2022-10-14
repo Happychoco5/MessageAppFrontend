@@ -34,6 +34,7 @@ export class RegisterFormComponent implements OnInit {
       },
       (error)=>{
         console.log("There was an error creating your account.");
+        alert("There was an error creating your account. Please verify all information is correct");
       }
     );
   }

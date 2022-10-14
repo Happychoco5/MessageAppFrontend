@@ -1,4 +1,33 @@
-<p>Messages</p>
-<p *ngFor="let m of messages"> <b *ngIf="m.sender == user.id">{{user.username}}:</b><b *ngIf="m.sender == friend.id">{{friend.username}}:</b>{{m.epochTime | date : 'short'}} | {{m.contents}}</p>
-<textarea matInput rows="3" cols="500" placeholder="Send a message!" maxlength="200" [(ngModel)]="message"></textarea>
-<button [disabled]="this.message === ''" (click)="sendMessage()">Send</button>
+<h4 class="center">Messages</h4>
+<div class="messageHolder" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+    <div class="message" *ngFor="let m of messages" [ngClass]="{'alignLeft': m.sender == friend.id}" [ngClass]="{'alignRight': m.sender == user.id}">
+        <!-- <img src="../assets/"> -->
+        <!-- This is where the check for if me, go right, if them, go left -->
+        <div class="contents" [ngClass]="{'overImageLeft': m.sender == friend.id}" [ngClass]="{'overImageRight': m.sender == user.id}">
+            <!-- This is where the content of the message is gonna go -->
+            <p>{{m.contents}}</p>
+        </div>
+        <p *ngIf="m.sender == user.id">{{user.username}}:</p>
+        <p *ngIf="m.sender == friend.id">{{friend.username}}:</p>
+        <p>{{m.epochTime | date : 'short'}}</p>
+    </div>
+
+    <!-- <table>
+        <tbody>
+            <div class="alignRight" *ngFor="let m of messages">
+                <tr class="alignRight" >
+                    <td *ngIf="m.sender == user.id">{{user.username}}:</td>
+                    <td *ngIf="m.sender == friend.id">{{friend.username}}:</td>
+                    <td>{{m.epochTime | date : 'short'}}</td>
+                    <td>{{m.contents}}</td>
+                </tr>
+            </div>
+        </tbody>
+    </table> -->
+</div>
+<div class="center">
+    <div>
+        <textarea (keydown.enter)="sendMessage()" style="resize: none;" matInput rows="3" cols="50" placeholder="Send a message!" maxlength="200" [(ngModel)]="message" ></textarea>
+        <button [disabled]="this.message === '' || this.message === '\n'" (click)="sendMessage()">Send</button>
+    </div>
+</div>

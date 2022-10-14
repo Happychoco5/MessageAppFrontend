@@ -18,6 +18,7 @@ export class FriendListComponent implements OnInit {
   friend:AppUser = new AppUser(0, '', '', '', '', '');
   
   //Friend list information
+  finishedRequest:boolean = false;
   showList:boolean = false;
   status:string = "";
   friends:Friend[]|undefined = [];
@@ -45,6 +46,7 @@ export class FriendListComponent implements OnInit {
 
 
   async showFriends(){
+    this.finishedRequest = false;
     this.friendlists = [];
     this.showList = true;
     this.status = "Friends";
@@ -66,11 +68,13 @@ export class FriendListComponent implements OnInit {
         }
       }
     }
+    this.finishedRequest = true;
     console.log(this.friendlists);
 
   }
 
   async showPending(){
+    this.finishedRequest = false;
     this.friendlists = [];
     this.showList = true;
     this.status = "Pending";
@@ -86,7 +90,7 @@ export class FriendListComponent implements OnInit {
       }
     }
     console.log(this.friendlists);
-
+    this.finishedRequest = true;
   }
   
   addFriend(){
@@ -95,11 +99,18 @@ export class FriendListComponent implements OnInit {
         this.friendService.addFriend(user, this.appUser).subscribe(
           (addfriend)=>{
             console.log("Friend added successfully!");
+            alert("Friend added successfully!");
           },
           (error)=>{
             console.log("An error occurred adding friend");
+            alert("An error occurred adding friend")
           }
         )
+      },
+      (error)=>{
+        console.log(error.status);
+        console.log("An error occurred adding that friend.");
+        alert("Could not find user with that username");
       }
     );
 
@@ -109,9 +120,11 @@ export class FriendListComponent implements OnInit {
     this.friendService.acceptFriend(friend, this.appUser).subscribe(
       (success)=>{
         console.log("Successfully accepted request.");
+        alert("Successfully accepted friend request");
       },
       (error)=>{
         console.log("Error occurred accepting request.");
+        alert("Erro occured, could not accept request.");
       }
     );
     this.showList = false;
@@ -121,9 +134,11 @@ export class FriendListComponent implements OnInit {
     this.friendService.acceptFriend(friend, this.appUser).subscribe(
       (success)=>{
         console.log("Successfully accepted request.");
+        alert("Successfully declined friend request");
       },
       (error)=>{
         console.log("Error occurred accepting request.");
+        alert("Erro occured, could not decline request.");
       }
     );
     this.showList = false;
@@ -133,9 +148,11 @@ export class FriendListComponent implements OnInit {
     this.friendService.declineOrRemoveFriend(friend, this.appUser, "Friends").subscribe(
       (success)=>{
         console.log("Successfully deleted friend");
+        alert("Successfully removed friend");
       },
       (error)=>{
         console.log("An error occurred deleting that friend");
+        alert("An error occurred removing that friend");
       }
     );
     this.showFriends();

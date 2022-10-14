@@ -1,0 +1,33 @@
+.messageHolder{
+    width: 30%;
+    height: 30em;
+    overflow-y:scroll;
+    margin: 0 auto;
+}
+
+.center{
+    text-align: center;
+}
+
+.message{
+    position: relative;
+    border: 1px solid;
+    border-radius: 20px;
+    word-wrap: break-word;
+    overflow: auto;
+    padding: 20px;
+    margin: 20px;
+    background-color: rgba(0, 0, 0, 0.3)  ;
+}
+
+.alignRight{
+    text-align: right;
+}
+
+.alignLeft{
+    text-align: left;
+}
+
+button{
+    padding: 1em;
+}

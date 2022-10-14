@@ -1,4 +1,5 @@
-<p>main-page works!</p>
-<app-friend-list (sendFriendMessageEvent)="updateMessageInfo($event)"></app-friend-list>
-<app-message-table [friend]="friendInfo"></app-message-table>
-<button (click)="logout()">Logout</button>
+<div class="margin">
+    <app-navbar></app-navbar>
+    <app-friend-list (sendFriendMessageEvent)="updateMessageInfo($event)"></app-friend-list>
+    <app-message-table [friend]="friendInfo"></app-message-table>
+</div>

@@ -1,13 +1,24 @@
-<p>friend-list works!</p>
-<input type="text" [(ngModel)]="friendUsername">
-<button (click)="addFriend()">Add Friend</button>
-<p>{{appUser.username}}
-    Friends:</p>
-<button (click)="showFriends()">Show Friends</button> <button (click)="showPending()">Show Pending Reqs</button>
-<div *ngIf="showList === true">
-    <p *ngFor="let f of friendlists">{{f.appUser.username}}
-        <button *ngIf="f.friend.status === 'Pending'" (click)="acceptRequest(f.appUser)">Accept</button>
-        <button *ngIf="f.friend.status === 'Pending'" (click)="declineRequest(f.appUser)">Decline</button>
-        <button *ngIf="f.friend.status === 'Friends'" (click)="selectFriend(f.appUser)">Select</button>
-        <button *ngIf="f.friend.status === 'Friends'" (click)="removeFriend(f.appUser)">Remove Friend</button></p>
+<div style="text-align: center;">
+    <p>Add a new friend!</p>
+    <input type="text" [(ngModel)]="friendUsername">
+    <button (click)="addFriend()">Add Friend</button>
+    <p>{{appUser.username}}'s
+        Friends:</p>
+    <button (click)="showFriends()">Show Friends</button> <button (click)="showPending()">Show Pending Reqs</button>
+    
+    <!-- Send a message if currently loading -->
+    <p *ngIf="friendlists.length === 0 && status === 'Pending' && finishedRequest === false">Loading friend requests...</p>
+    <p *ngIf="friendlists.length === 0 && status === 'Friends' && finishedRequest === false">Loading friends...</p>
+    
+    <!-- Display a message when finished with request -->
+    <p *ngIf="friendlists.length === 0 && status === 'Pending' && finishedRequest === true">No friend requests :(</p>
+    <p *ngIf="friendlists.length === 0 && status === 'Friends' && finishedRequest === true">No friends. Add some now! :)</p>
+    
+    <div *ngIf="showList === true">
+        <p *ngFor="let f of friendlists">{{f.appUser.username}}
+            <button *ngIf="f.friend.status === 'Pending'" (click)="acceptRequest(f.appUser)">Accept</button>
+            <button *ngIf="f.friend.status === 'Pending'" (click)="declineRequest(f.appUser)">Decline</button>
+            <button *ngIf="f.friend.status === 'Friends'" (click)="selectFriend(f.appUser)">Select</button>
+            <button *ngIf="f.friend.status === 'Friends'" (click)="removeFriend(f.appUser)">Remove Friend</button></p>
+    </div>
 </div>

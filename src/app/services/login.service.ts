@@ -23,7 +23,7 @@ export class LoginService {
   }
 
   handleError(error:HttpErrorResponse){
-    if(error.status == 400 || error.status == 404){
+    if(error.status == 400 || error.status == 404 || error.status === 500){
       alert("Username or password is incorrect.");
       return throwError(() => new Error('Username or password is incorrect'));
     }

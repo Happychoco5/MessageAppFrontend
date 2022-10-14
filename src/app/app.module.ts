@@ -13,6 +13,7 @@ import { RegisterPageComponent } from './components/register-page/register-page.
 import { RegisterFormComponent } from './components/register-form/register-form.component';
 import { FriendListComponent } from './components/friend-list/friend-list.component';
 import { FormsModule } from '@angular/forms';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FormsModule } from '@angular/forms';
     MessageTableComponent,
     RegisterPageComponent,
     RegisterFormComponent,
-    FriendListComponent
+    FriendListComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

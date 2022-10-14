@@ -3,3 +3,21 @@
     width: 50%;
     height: 50em;
 }
+.form{
+    padding: 3em;
+    width: 50%;
+    height: 50%;
+    text-align: center;
+    margin: auto;
+}
+.fieldset{
+    padding: 3em;
+}
+
+h1, h3, p{
+    text-align: center;
+}
+
+input, label{
+    margin-top: 1em;
+}

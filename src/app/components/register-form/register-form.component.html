@@ -1,6 +1,6 @@
 <p>Register An Account!</p>
-<form (ngSubmit)="registerAccount()">
-    <fieldset class="center">
+<form class="form" (ngSubmit)="registerAccount()">
+    <fieldset class="fieldset">
         <label for="fname">Username:</label>
         <input type="text" id="username" name="username" [(ngModel)]="username">
         <br>
@@ -16,8 +16,10 @@
         <label for="fname">Last Name:</label>
         <input type="text" id="lName" name="lName" [(ngModel)]="lName">
         <br>
-        <button type="submit">Submit</button>
+        <button style="padding: 1em; margin-top: 3em;" type="submit">Submit</button>
         <br>
-        <a [routerLink]="['/login']">Back to Login</a>
+        <div style="margin-top: 1em; font-size: 30px;">
+            <a style=" text-decoration: none; color: aliceblue;" [routerLink]="['/login']">Back to Login</a>
+        </div>
     </fieldset>
 </form>

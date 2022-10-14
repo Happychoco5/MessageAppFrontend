@@ -21,9 +21,4 @@ export class MainPageComponent implements OnInit {
     this.friendInfo = user;
   }
 
-  logout(){
-    localStorage.clear();
-    this.router.navigateByUrl("/login");
-  }
-
 }
