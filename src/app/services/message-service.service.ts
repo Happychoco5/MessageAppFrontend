@@ -13,10 +13,10 @@ export class MessageServiceService {
   //Handles sending and recieving requests related to the messages
 
   public sendMessage(message:Message){
-     return this.http.post(`https://messageapp.icyflower-d2602808.eastus.azurecontainerapps.io/messages`, message);
+     return this.http.post(`https://messageapp.orangebay-520ae6cb.centralus.azurecontainerapps.io/messages`, message);
   }
 
   public getMessagesBetweenUsers(myId:number, friendId:number): Observable<Message[]>{
-    return this.http.get<Message[]>(`https://messageapp.icyflower-d2602808.eastus.azurecontainerapps.io/messages/${myId}/${friendId}`);
+    return this.http.get<Message[]>(`https://messageapp.orangebay-520ae6cb.centralus.azurecontainerapps.io/messages/${myId}/${friendId}`);
   }
 }

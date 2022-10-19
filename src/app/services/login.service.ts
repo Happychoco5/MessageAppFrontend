@@ -19,7 +19,7 @@ export class LoginService {
   getLogin(json:string){
     const headers = new HttpHeaders().set('Content-Type', 'application/json');
     const newJSON:JSON = JSON.parse(json);
-    return this.http.post<JSON>("https://messageapp.icyflower-d2602808.eastus.azurecontainerapps.io/login", newJSON, {responseType: 'text' as 'json', observe: 'response', headers: headers}).pipe(catchError(this.handleError));
+    return this.http.post<JSON>("https://messageapp.orangebay-520ae6cb.centralus.azurecontainerapps.io/login", newJSON, {responseType: 'text' as 'json', observe: 'response', headers: headers}).pipe(catchError(this.handleError));
   }
 
   handleError(error:HttpErrorResponse){

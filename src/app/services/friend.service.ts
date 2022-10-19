@@ -15,26 +15,26 @@ export class FriendService {
 
   addFriend(friend:AppUser, user:AppUser){
     const payload:Friend = new Friend(0, user.id, friend.id, "Pending");
-    return this.http.post(`https://messageapp.icyflower-d2602808.eastus.azurecontainerapps.io/friends`, payload);
+    return this.http.post(`https://messageapp.orangebay-520ae6cb.centralus.azurecontainerapps.io/friends`, payload);
   }
 
   async findPendingRequests(user:AppUser):Promise<Friend[]|undefined>
   {
-    return await this.http.get<Friend[]>(`https://messageapp.icyflower-d2602808.eastus.azurecontainerapps.io/friends/pending/${user.id}`).toPromise();
+    return await this.http.get<Friend[]>(`https://messageapp.orangebay-520ae6cb.centralus.azurecontainerapps.io/friends/pending/${user.id}`).toPromise();
   }
 
   async findFriends(user:AppUser):Promise<Friend[]|undefined>
   {
-    return await this.http.get<Friend[]>(`https://messageapp.icyflower-d2602808.eastus.azurecontainerapps.io/friends/friends/${user.id}`).toPromise();
+    return await this.http.get<Friend[]>(`https://messageapp.orangebay-520ae6cb.centralus.azurecontainerapps.io/friends/friends/${user.id}`).toPromise();
   }
 
   acceptFriend(friend:AppUser, user:AppUser){
     const payload:Friend = new Friend(0, friend.id, user.id, "Friends");
-    return this.http.put(`https://messageapp.icyflower-d2602808.eastus.azurecontainerapps.io/friends`, payload);
+    return this.http.put(`https://messageapp.orangebay-520ae6cb.centralus.azurecontainerapps.io/friends`, payload);
   }
 
   declineOrRemoveFriend(friend:AppUser, user:AppUser, status:string){
-    return this.http.delete(`https://messageapp.icyflower-d2602808.eastus.azurecontainerapps.io/friends/${user.id}/${friend.id}?status=${status}`);
+    return this.http.delete(`https://messageapp.orangebay-520ae6cb.centralus.azurecontainerapps.io/friends/${user.id}/${friend.id}?status=${status}`);
   }
 
 }
